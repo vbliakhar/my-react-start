@@ -10,32 +10,46 @@ class App extends Component {
           {name:"Mazda",year:"2010"},
           {name:"Lada",year:"1990"},
           ],
-      pageTitle: "Title"
+      pageTitle: "Title",
+      clickMenu:true
   }
   changeTitle = (a) =>{
     console.log(a)
-  // let pageTitle=pageTitle+a
   this.setState ({
-    pageTitle:a
+    clickMenu:!this.state.clickMenu
   })
   }
-  handleInput =(event)=>{
-    this.setState({
-      pageTitle: event.target.value
-    })
-  }
+  // handleInput =(event)=>{
+  //   this.setState({
+  //     pageTitle: event.target.value
+  //   })
+  // }
 
   render() {
     const divStyle = { 
       textAlign: "center"
     }
     console.log("render")
+    let cars=true;
+    if (this.state.clickMenu){
+      cars = this.state.cars.map((car, index)=>{
+        return(
+          <Car
+            key={index}
+            name={car.name}
+            year={car.year}
+            onClickTitle={()=>this.changeTitle(car.name)}
+          />
+        )
+      })
+    }
     return (
       <div style={divStyle}>
          <h1>{this.state.pageTitle}</h1>
-         <input type="text" onChange={this.handleInput}/>
          <button onClick={()=>this.changeTitle("Title new")}>Button</button>
-            {this.state.cars.map((car, index)=>{
+            {cars}
+            {/* {this.state.clickMenu?
+              this.state.cars.map((car, index)=>{
               return(
                 <Car
                   key={index}
@@ -44,7 +58,10 @@ class App extends Component {
                   onClickTitle={()=>this.changeTitle(car.name)}
                 />
               )
-            })}
+            })
+            :null
+            } */} 
+            {/* <-ternarnui operator */}
 
          {/* <Car
             name={this.state.cars[0].name} 
