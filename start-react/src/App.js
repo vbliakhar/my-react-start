@@ -12,28 +12,50 @@ class App extends Component {
           ],
       pageTitle: "Title"
   }
-  changeTitle = () =>{
-    console.log("Title")
-    let oldTitle = this.state.pageTitle
-    let newTitle=oldTitle+" hi"
+  changeTitle = (a) =>{
+    console.log(a)
+  // let pageTitle=pageTitle+a
   this.setState ({
-    pageTitle:newTitle
+    pageTitle:a
   })
   }
+  handleInput =(event)=>{
+    this.setState({
+      pageTitle: event.target.value
+    })
+  }
+
   render() {
     const divStyle = { 
       textAlign: "center"
     }
-    console.log("one")
+    console.log("render")
     return (
       <div style={divStyle}>
          <h1>{this.state.pageTitle}</h1>
-         <button onClick={this.changeTitle}>Button</button>
-         <Car
+         <input type="text" onChange={this.handleInput}/>
+         <button onClick={()=>this.changeTitle("Title new")}>Button</button>
+            {this.state.cars.map((car, index)=>{
+              return(
+                <Car
+                  key={index}
+                  name={car.name}
+                  year={car.year}
+                  onClickTitle={()=>this.changeTitle(car.name)}
+                />
+              )
+            })}
+
+         {/* <Car
             name={this.state.cars[0].name} 
             year={this.state.cars[0].year}
-            onClickTitle={this.changeTitle}
+            onClickTitle={()=>this.changeTitle(this.state.cars[0].name)}
          />
+         <Car
+            name={this.state.cars[1].name} 
+            year={this.state.cars[1].year}
+            onClickTitle={()=>this.changeTitle(this.state.cars[1].name)}
+         /> */}
       
       </div>
     );
