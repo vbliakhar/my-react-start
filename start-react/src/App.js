@@ -11,13 +11,35 @@ class App extends Component {
           {name:"Lada",year:"1990"},
           ],
       pageTitle: "Title",
-      clickMenu:true
+      clickMenu:true,
+  }
+  clickDelite =(index)=>{
+    console.log("Delite", index)
+    const cars = this.state.cars.concat()
+    cars.splice(index, 1)
+    this.setState({
+      cars
+    })
+
+ 
   }
   changeTitle = (a) =>{
     console.log(a)
   this.setState ({
     clickMenu:!this.state.clickMenu
   })
+  }
+  changeCar =(name, index)=>{
+    const oldMas = this.state.cars
+    oldMas.name=name
+    console.log(name);
+    const newMas=[...this.state.cars]
+    newMas[index]=oldMas
+    this.setState({
+      cars:newMas
+    })
+
+
   }
   // handleInput =(event)=>{
   //   this.setState({
@@ -29,50 +51,31 @@ class App extends Component {
     const divStyle = { 
       textAlign: "center"
     }
-    console.log("render")
-    let cars=true;
-    if (this.state.clickMenu){
-      cars = this.state.cars.map((car, index)=>{
-        return(
-          <Car
-            key={index}
-            name={car.name}
-            year={car.year}
-            onClickTitle={()=>this.changeTitle(car.name)}
-          />
-        )
-      })
-    }
     return (
       <div style={divStyle}>
          <h1>{this.state.pageTitle}</h1>
+
+         {this.state.invisibleP?
+         <p>Hello test characters</p>
+         :null}
+         
          <button onClick={()=>this.changeTitle("Title new")}>Button</button>
-            {cars}
-            {/* {this.state.clickMenu?
+          
+          {this.state.clickMenu?
               this.state.cars.map((car, index)=>{
               return(
                 <Car
                   key={index}
                   name={car.name}
                   year={car.year}
-                  onClickTitle={()=>this.changeTitle(car.name)}
+                  changeCar={(event)=>this.changeCar(event.target.value, index)}
+                  clickDelite={()=>this.clickDelite(index)}
                 />
               )
             })
             :null
-            } */} 
+            }
             {/* <-ternarnui operator */}
-
-         {/* <Car
-            name={this.state.cars[0].name} 
-            year={this.state.cars[0].year}
-            onClickTitle={()=>this.changeTitle(this.state.cars[0].name)}
-         />
-         <Car
-            name={this.state.cars[1].name} 
-            year={this.state.cars[1].year}
-            onClickTitle={()=>this.changeTitle(this.state.cars[1].name)}
-         /> */}
       
       </div>
     );

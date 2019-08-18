@@ -4,7 +4,9 @@ import React from"react"
         <div>
             <h1>Car name: {props.name}</h1>
             <p>Year: {props.year}</p>
-            <button onClick={props.onClickTitle}>click</button>
+            <input type="text" onChange={props.changeCar}/>
+            <button onClick={props.clickDelite}>Delite</button>
+            
         </div>
      )
  }
