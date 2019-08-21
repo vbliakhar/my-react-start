@@ -1,6 +1,13 @@
 .Car {
     background: grey;
 }
+.testik{
+    
+}
+.testikOne{
+    background: black;
+    color:white;
+}
 .input {
 
 }
@@ -12,4 +19,9 @@ input.green {
 }
 input.red {
     border:solid 5px red;
+}
+input.nameLength {
+    border:solid 10px red;
+    background: red;
+    color: white;
 }

@@ -8,9 +8,16 @@ import "./Car.css"
         else{
             inputClasses.push("red")
         }
+        if (props.name.length>5){
+            inputClasses.push("nameLength")
+        }
+        const testik =["testik"]
+            if (props.name.length>4){
+                testik.push("testikOne")
+            }
      return(
         <div className="Car">
-            <h1>Car name: {props.name}</h1>
+            <h1 className={testik.join(" ")}>Car name: {props.name}</h1>
             <p>Year: {props.year}</p>
             <input 
             type="text" 
@@ -19,6 +26,7 @@ import "./Car.css"
             className={inputClasses.join(" ")}
             />
             <button onClick={props.clickDelite}>Delite</button>
+           
             
         </div>
      )
