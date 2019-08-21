@@ -1,5 +1,6 @@
 import React from"react"
-import "./Car.css"
+// import "./Car.css"
+import steless from "./Car.module.css"
  const car=(props)=>{
      const inputClasses = ["input"]
         if (props.name!==""){
@@ -15,8 +16,9 @@ import "./Car.css"
             if (props.name.length>4){
                 testik.push("testikOne")
             }
+        
      return(
-        <div className="Car">
+        <div className={steless.petia}>
             <h1 className={testik.join(" ")}>Car name: {props.name}</h1>
             <p>Year: {props.year}</p>
             <input 

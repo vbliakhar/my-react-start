@@ -1,5 +1,11 @@
 .Car {
     background: grey;
+    width:400px;
+    margin: 20px auto; 
+}
+.petia{
+    background-color: blue;
+    border: solid 5px black;
 }
 .testik{
     
