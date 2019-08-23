@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Car from './Car/Car'
+import Counter from "./Counter/Counter"
 // import './App.scss'
 
 
@@ -53,8 +54,10 @@ class App extends Component {
     }
     return (
       <div style={divStyle}>
+         
          <h1>{this.state.pageTitle}</h1>
-
+         <Counter/>
+         <p> </p>
          {this.state.invisibleP?
          <p>Hello test characters</p>
          :null}

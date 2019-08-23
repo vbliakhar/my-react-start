@@ -1,24 +1,24 @@
 import React from"react"
 // import "./Car.css"
-import steless from "./Car.module.css"
+import stiles from "./Car.module.css"
  const car=(props)=>{
-     const inputClasses = ["input"]
+     const inputClasses = [stiles.input]
         if (props.name!==""){
-            inputClasses.push("green")
+            inputClasses.push(stiles.green)
         }
         else{
-            inputClasses.push("red")
+            inputClasses.push(stiles.red)
         }
         if (props.name.length>5){
-            inputClasses.push("nameLength")
+            inputClasses.push(stiles.nameLength)
         }
-        const testik =["testik"]
+        const testik =[stiles.testik]
             if (props.name.length>4){
-                testik.push("testikOne")
+                testik.push(stiles.testikOne)
             }
         
      return(
-        <div className={steless.petia}>
+        <div className={stiles.Car}>
             <h1 className={testik.join(" ")}>Car name: {props.name}</h1>
             <p>Year: {props.year}</p>
             <input 
