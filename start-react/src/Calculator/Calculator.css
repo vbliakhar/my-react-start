@@ -1,0 +1,26 @@
+.Calculator {
+    background: grey;
+    width:400px;
+    height: 400px;
+    margin: 20px auto; 
+    border: solid 10px black
+}
+.Calculator h2 {
+    background: black;
+    color: white;
+    padding: auto;
+    margin: auto;
+}
+.Calculator input{
+    text-align: right;
+    width: auto;
+    height: 40px;
+    padding: auto;
+    margin: auto;
+
+}
+.numberButton {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: yellow;
+}
